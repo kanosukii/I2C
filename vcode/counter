@@ -1,0 +1,18 @@
+module counter#(
+	parameter DIGITS = 8 // the max counter is 2^8-1
+)
+(
+	input clk,
+	input rst,
+	input en,
+	output [DIGITS-1:0]q
+);
+	reg [DIGITS-1:0]q_temp;
+	always @(posedge clk) begin
+		if(rst)
+			q_temp <= {DIGITS{1'b0}};
+		else if(en)
+			q_temp <= q_temp + {{(DIGITS-1){1'b0}},{1'b1}};
+end
+	assign q = q_temp;
+endmodule

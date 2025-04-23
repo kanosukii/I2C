@@ -1,0 +1,4 @@
+scl_ctrl signal
+scl_en,scl_out,scl
+sda_ctrl signal
+sda_en,sda_out,sda
